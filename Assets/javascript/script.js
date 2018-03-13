@@ -15,3 +15,9 @@ let destination = ""
 let frequency = ""
 let arrival = ""
 let minutes = ""
+
+$("#submit").on("click", function() {
+    event.preventDefault();
+    console.log("does this work")
+
+})
