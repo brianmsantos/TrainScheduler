@@ -45,10 +45,10 @@ database.ref().on("child_added", function(snapshot) {
 
     // Change the HTML to reflect
 
-    $("#inputTrainName").text(snapshot.val().train);
-    $("#inputDestination").text(snapshot.val().destination);
-    $("#inputTrainTime").text(snapshot.val().arrival);
-    $("#inputFrequency").text(snapshot.val().minutes);
+    $("#inputTrainName").append(snapshot.val().train);
+    $("#inputDestination").append(snapshot.val().destination);
+    $("#inputTrainTime").append(snapshot.val().arrival);
+    $("#inputFrequency").append(snapshot.val().minutes);
 
     // Handle the errors
 
