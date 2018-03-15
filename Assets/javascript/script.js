@@ -45,10 +45,12 @@ database.ref().on("child_added", function(snapshot) {
 
     // Change the HTML to reflect
 
-    $("#inputTrainName").append(snapshot.val().train);
-    $("#inputDestination").append(snapshot.val().destination);
-    $("#inputTrainTime").append(snapshot.val().arrival);
-    $("#inputFrequency").append(snapshot.val().minutes);
+    // $("#inputTrainName").append(snapshot.val().train);
+    // $("#inputDestination").append(snapshot.val().destination);
+    // $("#inputTrainTime").append(snapshot.val().arrival);
+    // $("#inputFrequency").append(snapshot.val().minutes);
+
+    $("tbody").append(`<tr><td>${snapshot.val().train}</td><td>${snapshot.val().destination}</td><td>${snapshot.val().minutes}</td><td><td></td><tr>`)
 
     // Handle the errors
 
@@ -57,3 +59,5 @@ database.ref().on("child_added", function(snapshot) {
     console.log("Errors handled: " + errorObject.code);
 
 });
+
+// create a function that will calculate time real time
