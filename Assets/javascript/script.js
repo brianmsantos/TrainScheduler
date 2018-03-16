@@ -43,6 +43,14 @@ database.ref().on("child_added", function(snapshot) {
     console.log(snapshot.val().arrival);
     console.log(snapshot.val().minutes);
 
+    // next arrival
+    // let nextArrival = moment([snapshot.val().minutes]).fromNow();
+
+    let currentTime = moment().format("HHmm")
+
+    let nextArrival = moment().minutes(snapshot.val().arrival).add(currentTime)
+
+    let minutesAway = moment().minutes(snapshot.val().minutes).fromNow();
     // Change the HTML to reflect
 
     // $("#inputTrainName").append(snapshot.val().train);
@@ -50,7 +58,7 @@ database.ref().on("child_added", function(snapshot) {
     // $("#inputTrainTime").append(snapshot.val().arrival);
     // $("#inputFrequency").append(snapshot.val().minutes);
 
-    $("tbody").append(`<tr><td>${snapshot.val().train}</td><td>${snapshot.val().destination}</td><td>${snapshot.val().minutes}</td><td><td></td><tr>`)
+    $("tbody").append(`<tr><td>${snapshot.val().train}</td><td>${snapshot.val().destination}</td><td>${snapshot.val().minutes}</td><td>${nextArrival}</td><td>${minutesAway}</td><tr>`)
 
     // Handle the errors
 
@@ -63,6 +71,7 @@ database.ref().on("child_added", function(snapshot) {
 // create a function that will calculate time real time
 
 
-console.log(moment())
 
-console.log(moment({ hour: 2, minute: 30 }).format())
+
+
+// console.log(moment({ hour: 2, minute: 30 }).format())
