@@ -61,3 +61,8 @@ database.ref().on("child_added", function(snapshot) {
 });
 
 // create a function that will calculate time real time
+
+
+console.log(moment())
+
+console.log(moment({ hour: 2, minute: 30 }).format())
